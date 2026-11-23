@@ -200,23 +200,6 @@ section {
 .social-links a:hover {
     border-bottom: 2px solid darkblue;
 }
-
-/* SKILL TAGS */
-.skill-tags {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.skill-tags span {
-    background-color: #e0e7ff;
-    color: darkblue;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
 /* FADE-IN ANIMATION */
 .home-text,
 .home-image {
