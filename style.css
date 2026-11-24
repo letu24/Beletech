@@ -54,6 +54,70 @@ nav a.active {
 nav a:hover {
     transform: translateY(-3px);
 }
+#theme-toggle {
+  background: transparent;
+  border: 2px solid var(--nav-text);
+  color: var(--nav-text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: 20px;
+}[data-theme="dark"] body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] section {
+  background: #0f172a !important;
+}
+
+[data-theme="dark"] section:nth-of-type(even) {
+  background: #1e293b !important;
+}
+
+[data-theme="dark"] nav,
+[data-theme="dark"] header {
+  background: #0b1220 !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .social-links a {
+  color:turquoise !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] label {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background: #263449 !important;
+  color: #e2e8f0 !important;
+  border-color: #3b4a63 !important;
+}
+
+[data-theme="dark"] .home-btn {
+  background: #3b5bdb !important;
+  color: #ffffff !important;
+  border-color: #3b5bdb !important;
+}
+
+[data-theme="dark"] .outline-btn {
+  background: transparent !important;
+  color: #8ab4ff !important;
+  border-color: #8ab4ff !important;
+}
+
+[data-theme="dark"] .skill-tags span {
+  background: #263449 !important;
+  color: #8ab4ff !important;
+}
 
 /* SECTIONS (общий) */
 section {
@@ -187,17 +251,38 @@ section {
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-top: 20px;
+  margin-top:50px;
 }
 .social-links a {
   font-size: 1.8rem;
   color: darkblue;
   text-decoration: none;
   transition: transform 0.2s, color 0.2s;
+   position: relative;
 }
 .social-links a:hover {
   color: #1a1aff;
   transform: translateY(-3px);
+}
+
+.social-links a::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  color:darkorange;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.social-links a:hover::after {
+  opacity: 1;
 }
 /* FADE-IN ANIMATION */
 .home-text,
@@ -274,14 +359,12 @@ section {
     box-shadow: 0 5px 15px rgba(0, 0, 80, 0.1);
     transition: 0.3s;
 }
-
 .skill-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0, 0, 80, 0.2);
 }
-
 .skill-card h3 {
-    color: darkblue;
+    color:blue;
     margin-bottom: 12px;
 }
 
@@ -349,7 +432,7 @@ section {
 }
 
 .contact-email {
-    color: darkblue;
+    color: blue;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
@@ -358,7 +441,7 @@ section {
 }
 
 .contact-email:hover {
-    color: darkslategray;
+    color:gold;
     border-bottom-color: chartreuse;
 }
 
