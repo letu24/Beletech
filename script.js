@@ -35,3 +35,20 @@ window.addEventListener("scroll", () => {
         a.classList.toggle("active", a.getAttribute("href") === "#" + current);
     });
 });
+const themeToggle = document.getElementById('theme-toggle');
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+  try { localStorage.setItem('theme', theme); } catch (e) {}
+}
+
+let savedTheme = null;
+try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
